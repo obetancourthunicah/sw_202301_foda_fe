@@ -1,0 +1,20 @@
+section.action{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 1rem;
+  border: none;
+  background-color: transparent;
+}
+
+section.action.right{
+  justify-content: flex-end;
+}
+section.action.left{
+  justify-content: flex-start;
+}
+section.action.center{
+  justify-content: center;
+}
