@@ -3,11 +3,17 @@
 import { useNavigate } from "react-router-dom";
 //import { selectAuth, resetSecData } from "@store/Slices/secSlice";
 
+import {FC} from 'react';
 import {BiLogIn, BiLogOut, BiUserPlus } from 'react-icons/bi';
-
 import "./Menu.css";
 
-const Menu = ({setShowMenu, selectShowMenu, showMenu}) => {
+interface MenuProps {
+  setShowMenu: (showMenu: boolean) => void;
+  selectShowMenu: boolean;
+  showMenu: boolean;
+}
+
+const Menu:FC<MenuProps> = ({setShowMenu, selectShowMenu, showMenu}) => {
   const user = {token: ''}; //useSelector(selectAuth);
   //const showMenu = useSelector(selectShowMenu);
   //const dispatch = useDispatch();
