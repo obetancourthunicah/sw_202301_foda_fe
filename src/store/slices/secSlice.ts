@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../store';
 
 interface SecState {
   name: string;
@@ -33,4 +34,5 @@ export const secSlice = createSlice({
   }
 });
 export const {setSec, clearSec} = secSlice.actions;
+export const selectSec = (state: RootState) => state.sec;
 export default secSlice.reducer;

@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
-import { selectAuth } from "@store/Slices/secSlice";
+import { selectSec } from "@/store/slices/secSlice";
 import { PropsWithChildren } from "react";
 const PrivateRoute = ({ children, allowedRoles=[] } : PropsWithChildren<{allowedRoles?:string[]}>) => {
-  const user = useSelector(selectAuth);
+  const user = useSelector(selectSec);
   if (user) {
     try {
       const { token } = user;

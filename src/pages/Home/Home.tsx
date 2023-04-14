@@ -4,7 +4,7 @@ import { getHomeData } from "./HomeService";
 import Page from "../../components/Page";
 import { useGetAllQuery } from '@/store/services/empServices';
 export const Home: FC = () => {
-  const {data: empresas} = useGetAllQuery();
+  const {data: empresas} = useGetAllQuery({});
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<null | string>(null);

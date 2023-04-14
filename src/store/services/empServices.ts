@@ -11,13 +11,30 @@ export const empApi = createApi({
       headers.set('Authorization', `Bearer ${token}` )
     }
   }),
+  tagTypes: ["Empresas"],
   endpoints: (builder) => ({
     getAll: builder.query({
       query: () => ({
-        url: 'getAll'
-      })
+        url: 'all'
+      }),
+      providesTags: ["Empresas"]
+    }),
+    getById: builder.query({
+      query: (id) => ({
+        url: `byid/${id}`
+      }),
+      providesTags: ["Empresas"]
+    }),
+    addNew: builder.mutation({
+      query: (emp:{codigo:string, nombre:string, status:string}) => (
+        {
+          url: 'new',
+          method: 'POST',
+          body: emp
+        }),
+      invalidatesTags: ["Empresas"]
     })
   })
 });
 
-export const {useGetAllQuery} = empApi;
+export const {useGetAllQuery, useGetByIdQuery, useAddNewMutation} = empApi;
