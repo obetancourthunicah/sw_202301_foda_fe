@@ -1,11 +1,11 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-
+const {VITE_APP_API_BASE_URL, VITE_APP_API_KEY} = import.meta.env;
 export const secApi = createApi({
   reducerPath: 'secApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.REACT_APP_API_BASE_URL}/security`,
+    baseUrl: `${VITE_APP_API_BASE_URL}/security`,
     prepareHeaders: (headers)=>{
-      headers.set('apikey', process.env?.REACT_APP_API_KEY||'');
+      headers.set('apikey', VITE_APP_API_KEY||'');
     }
   }),
   endpoints: (builder) => ({

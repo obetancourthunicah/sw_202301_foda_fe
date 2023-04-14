@@ -2,7 +2,9 @@ import { FC, useState, useEffect } from "react";
 import { Card } from "../../components/Card";
 import { getHomeData } from "./HomeService";
 import Page from "../../components/Page";
+import { useGetAllQuery } from '@/store/services/empServices';
 export const Home: FC = () => {
+  const {data: empresas} = useGetAllQuery();
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<null | string>(null);
@@ -38,6 +40,7 @@ export const Home: FC = () => {
           <h2>{data}</h2>
         </Card>
       )}
+      { JSON.stringify(empresas) }
     </Page>
   );
 };
